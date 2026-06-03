@@ -1,0 +1,74 @@
+Id,Type,Label,Shape,Connector From,Connector To,Connector Label,Fill Color,Notes
+N1,Node,Regulatory Change / Change Control Raised,Terminator,,,,#1F4E79,Start of variation assessment
+N2,Node,Identify affected MA terms / dossier section,Process,,,,#D9EAF7,Identify what part of the marketing authorisation/dossier is affected
+N3,Node,Check EU Variation Guideline classification,Process,,,,#D9EAF7,Use the EU variation guideline classification categories
+N4,Node,Is the change an Extension?,Decision,,,,#FFF2CC,Extensions are checked early because they follow the highest procedure level
+N5,Node,Extension Application,Process,,,,#D9D2E9,Extension of marketing authorisation
+N6,Node,Is it a minor Type IA change?,Decision,,,,#FFF2CC,Type IA minor variation check
+N7,Node,Does it require immediate notification?,Decision,,,,#FFF2CC,Distinguishes Type IAIN from Type IA annual update
+N8,Node,Type IAIN,Process,,,,#B6D7A8,Minor variation requiring immediate notification after implementation
+N9,Node,Type IA Annual Update,Process,,,,#D9EAD3,"Minor variation, Do and Tell route; generally annual notification"
+N10,Node,Is it a Type IB change?,Decision,,,,#FFF2CC,Type IB minor variation check
+N11,Node,"Type IB - Tell, Wait and Do",Process,,,,#FCE5CD,Type IB notification before implementation
+N12,Node,Is it a major Type II change?,Decision,,,,#FFF2CC,Major variation check
+N13,Node,Type II Variation - Agency assessment required,Process,,,,#F9CB9C,Major variation
+N14,Node,Urgent Safety Restriction,Process,,,,#E06666,Urgent safety-related route
+N15,Node,Variation Category Identified,Process,,,,#D9EAF7,Classification output
+N16,Node,Can the variation be grouped?,Decision,,,,#FFF2CC,Start grouping assessment
+N17,Node,Standalone Submission,Process,,,,#E7E6E6,Use where grouping is not applicable
+N18,Node,Are changes related / consequential?,Decision,,,,#FFF2CC,Grouping should be based on related/consequential changes
+N19,Node,Separate Submissions,Process,,,,#E7E6E6,Use when grouping is not justified
+N20,Node,Do they affect one MA or multiple MAs?,Decision,,,,#FFF2CC,Determines grouped submission versus super-grouping/worksharing route
+N21,Node,Grouped Variation,Process,,,,#D0E0E3,Grouped variation for one marketing authorisation
+N22,Node,Same MAH and same change/group?,Decision,,,,#FFF2CC,Assess if multiple MAs can use super-grouping or worksharing
+N23,Node,Super-grouping - Type IA/IAIN only,Process,,,,#D9EAD3,Type IA/IAIN variations affecting several MAs
+N24,Node,Worksharing - Type IB / Type II,Process,,,,#C9DAF8,Same Type IB or Type II variation/group affecting more than one MA from the same MAH
+N25,Node,Apply highest variation type rule: Extension > Type II > Type IB > Type IA / IAIN,Process,,,,#D9D2E9,Grouped variations follow the highest variation type included
+N26,Node,Prepare Application / Notification,Document,,,,#D9EAF7,Prepare submission package
+N27,Node,Submit to EMA / Relevant Authority,Process,,,,#D9EAF7,Submit via appropriate route
+N28,Node,Agency Review / Notification Outcome,Process,,,,#D9EAF7,Review/outcome stage
+N29,Node,Approval / Acceptance / Rejection,Process,,,,#D9EAF7,Procedure outcome
+N30,Node,Implementation,Process,,,,#D9EAD3,Implement accepted/approved change
+N31,Node,Archive,Process,,,,#E7E6E6,Archive final records
+N32,Node,End,Terminator,,,,#1F4E79,End of flow
+E1,Connector,,Arrow,N1,N2,,,
+E2,Connector,,Arrow,N2,N3,,,
+E3,Connector,,Arrow,N3,N4,,,
+E4,Connector,,Arrow,N4,N5,Yes,,
+E5,Connector,,Arrow,N4,N6,No,,
+E6,Connector,,Arrow,N6,N7,Yes,,
+E7,Connector,,Arrow,N7,N8,Yes,,
+E8,Connector,,Arrow,N7,N9,No,,
+E9,Connector,,Arrow,N6,N10,No,,
+E10,Connector,,Arrow,N10,N11,Yes,,
+E11,Connector,,Arrow,N10,N12,No,,
+E12,Connector,,Arrow,N12,N13,Yes,,
+E13,Connector,,Arrow,N12,N14,Urgent safety issue,,
+E14,Connector,,Arrow,N5,N15,,,
+E15,Connector,,Arrow,N8,N15,,,
+E16,Connector,,Arrow,N9,N15,,,
+E17,Connector,,Arrow,N11,N15,,,
+E18,Connector,,Arrow,N13,N15,,,
+E19,Connector,,Arrow,N14,N15,,,
+E20,Connector,,Arrow,N15,N16,,,
+E21,Connector,,Arrow,N16,N17,No,,
+E22,Connector,,Arrow,N16,N18,Yes,,
+E23,Connector,,Arrow,N18,N19,No,,
+E24,Connector,,Arrow,N18,N20,Yes,,
+E25,Connector,,Arrow,N20,N21,One MA,,
+E26,Connector,,Arrow,N20,N22,Multiple MAs,,
+E27,Connector,,Arrow,N22,N23,Type IA/IAIN only,,
+E28,Connector,,Arrow,N22,N24,Type IB / Type II,,
+E29,Connector,,Arrow,N22,N19,Not same / not justified,,
+E30,Connector,,Arrow,N17,N26,,,
+E31,Connector,,Arrow,N19,N26,,,
+E32,Connector,,Arrow,N21,N25,,,
+E33,Connector,,Arrow,N23,N25,,,
+E34,Connector,,Arrow,N24,N25,,,
+E35,Connector,,Arrow,N25,N26,,,
+E36,Connector,,Arrow,N26,N27,,,
+E37,Connector,,Arrow,N27,N28,,,
+E38,Connector,,Arrow,N28,N29,,,
+E39,Connector,,Arrow,N29,N30,,,
+E40,Connector,,Arrow,N30,N31,,,
+E41,Connector,,Arrow,N31,N32,,,
